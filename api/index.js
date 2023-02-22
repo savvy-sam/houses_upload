@@ -3,6 +3,8 @@ import {db}  from './config/database.js'
 import HouseRoutes from './routes/HouseRoutes.js'
 import bodyParser from 'body-parser';
 import cors from "cors";
+import dotenv from 'dotenv'
+dotenv.config()
 
 const app = express();
 
@@ -20,8 +22,9 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(HouseRoutes);
 
 
+const port=process.env.PORT || 8000
 
-app.listen(8000, ()=> {
+app.listen(port, ()=> {
     console.log("The Backend is Live on port 8000!!")
 });
 
